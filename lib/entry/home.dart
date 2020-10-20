@@ -14,7 +14,7 @@ class HomeView extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           onPressed: () {
-            displayLocalNotification();
+            scheduleLocalNotification();
           },
           child: Text("Notification"),
         ),

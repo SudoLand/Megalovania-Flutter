@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/timezone.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -79,5 +80,26 @@ Future<void> displayLocalNotification() async {
     'plain body',
     platformChannelSpecifics,
     payload: 'item x',
+  );
+}
+
+Future<void> scheduleLocalNotification() async {
+  await flutterLocalNotificationsPlugin.zonedSchedule(
+    0,
+    'scheduled title',
+    'scheduled body',
+    TZDateTime.now(local).add(const Duration(
+      seconds: 5,
+    )),
+    const NotificationDetails(
+      android: AndroidNotificationDetails(
+        'id',
+        'name',
+        'description',
+      ),
+    ),
+    androidAllowWhileIdle: true,
+    uiLocalNotificationDateInterpretation:
+        UILocalNotificationDateInterpretation.absoluteTime,
   );
 }
