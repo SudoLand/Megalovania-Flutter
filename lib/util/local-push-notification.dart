@@ -57,3 +57,27 @@ Future<bool> requestPushNotificationPermission() async {
 
   return true;
 }
+
+Future<void> displayLocalNotification() async {
+  const AndroidNotificationDetails androidPlatformChannelSpecifics =
+      AndroidNotificationDetails(
+    'id',
+    'channel',
+    'description',
+    importance: Importance.max,
+    priority: Priority.high,
+    showWhen: false,
+  );
+
+  const NotificationDetails platformChannelSpecifics = NotificationDetails(
+    android: androidPlatformChannelSpecifics,
+  );
+
+  await flutterLocalNotificationsPlugin.show(
+    0,
+    'plain title',
+    'plain body',
+    platformChannelSpecifics,
+    payload: 'item x',
+  );
+}

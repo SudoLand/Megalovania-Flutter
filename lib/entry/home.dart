@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:megalovania/i18n/core/localizations.dart';
+import 'package:megalovania/util/local-push-notification.dart';
 
 class HomeView extends StatelessWidget {
   static const String route = '/home';
@@ -9,6 +10,14 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: CoreLocalizations.of(context).getText('Megalovania'),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            displayLocalNotification();
+          },
+          child: Text("Notification"),
+        ),
       ),
     );
   }
