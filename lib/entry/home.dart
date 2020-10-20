@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:megalovania/i18n/core/localizations.dart';
 
 class HomeView extends StatelessWidget {
   static const String route = '/home';
@@ -7,7 +8,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("123"),
+        title: CoreLocalizations.of(context).getText('Megalovania'),
       ),
     );
   }
