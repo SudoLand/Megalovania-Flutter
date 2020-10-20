@@ -1,11 +1,16 @@
 {
     "cSpell.enableFiletypes": [
         "dart",
+        "xml",
         "yaml"
     ],
     "cSpell.words": [
+        "POWERON",
+        "QUICKBOOT",
         "cupertino",
+        "flutterlocalnotifications",
         "megalovania",
+        "mipmap",
         "sqflite"
     ]
 }
