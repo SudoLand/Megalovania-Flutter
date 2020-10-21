@@ -2,8 +2,6 @@ import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:megalovania/util/local-push-notification/base.dart';
-import 'package:megalovania/util/local-push-notification/static.dart';
-import 'package:timezone/timezone.dart';
 
 Future<void> initializeLocalPushNotification() async {
   const AndroidInitializationSettings androidInitializationSettings =
@@ -56,25 +54,4 @@ Future<bool> requestPushNotificationPermission() async {
   }
 
   return true;
-}
-
-Future<void> scheduleLocalNotification() async {
-  await flutterLocalNotificationsPlugin.zonedSchedule(
-    0,
-    'scheduled title',
-    'scheduled body',
-    TZDateTime.now(local).add(const Duration(
-      seconds: 5,
-    )),
-    const NotificationDetails(
-      android: AndroidNotificationDetails(
-        defaultAndroidChannelId,
-        defaultAndroidChannelName,
-        defaultAndroidChannelDescription,
-      ),
-    ),
-    androidAllowWhileIdle: true,
-    uiLocalNotificationDateInterpretation:
-        UILocalNotificationDateInterpretation.absoluteTime,
-  );
 }

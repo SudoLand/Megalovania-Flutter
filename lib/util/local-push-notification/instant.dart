@@ -1,8 +1,14 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:megalovania/util/local-push-notification/base.dart';
 import 'package:megalovania/util/local-push-notification/static.dart';
 
-Future<void> instantLocalNotification() async {
+Future<void> instantLocalNotification({
+  @required int id,
+  @required String title,
+  @required String body,
+  String payload,
+}) async {
   const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
     defaultAndroidChannelId,
@@ -18,10 +24,10 @@ Future<void> instantLocalNotification() async {
   );
 
   await flutterLocalNotificationsPlugin.show(
-    0,
-    'plain title',
-    'plain body',
+    id,
+    title,
+    body,
     platformChannelSpecifics,
-    payload: 'item x',
+    payload: payload,
   );
 }
