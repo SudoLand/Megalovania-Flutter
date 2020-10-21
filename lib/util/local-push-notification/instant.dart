@@ -9,6 +9,10 @@ Future<void> instantLocalNotification({
   @required String body,
   String payload,
 }) async {
+  if (!platformPushNotificationAvailable()) {
+    return;
+  }
+
   const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
     defaultAndroidChannelId,

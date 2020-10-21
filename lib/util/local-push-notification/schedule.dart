@@ -10,6 +10,10 @@ Future<void> scheduleLocalNotification({
   @required String body,
   String payload,
 }) async {
+  if (!platformPushNotificationAvailable()) {
+    return;
+  }
+
   await flutterLocalNotificationsPlugin.zonedSchedule(
     id,
     title,
