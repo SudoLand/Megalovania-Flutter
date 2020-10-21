@@ -1,7 +1,7 @@
 import 'package:timezone/data/latest.dart';
 import 'package:timezone/timezone.dart';
 
-void initializeTimeConfig() {
+Future<void> initializeTimeConfig() async {
   initializeTimeZones();
 
   setLocalLocation(getLocation('America/Chicago'));

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:megalovania/entry/entry.dart';
 import 'package:megalovania/util/local-push-notification/initialize.dart';
-import 'package:megalovania/util/timezone.dart';
+import 'package:megalovania/util/timezone/initialize.dart';
 
 Future<void> main() async {
   final Widget entry = EntryView();
@@ -9,7 +9,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initializeLocalPushNotification();
-  initializeTimeConfig();
+  await initializeTimeConfig();
 
   runApp(entry);
 }
