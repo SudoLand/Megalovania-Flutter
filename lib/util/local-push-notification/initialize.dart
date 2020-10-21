@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:megalovania/util/local-push-notification/static.dart';
 import 'package:timezone/timezone.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -62,9 +63,9 @@ Future<bool> requestPushNotificationPermission() async {
 Future<void> displayLocalNotification() async {
   const AndroidNotificationDetails androidPlatformChannelSpecifics =
       AndroidNotificationDetails(
-    'id',
-    'channel',
-    'description',
+    defaultAndroidChannelId,
+    defaultAndroidChannelName,
+    defaultAndroidChannelDescription,
     importance: Importance.max,
     priority: Priority.high,
     showWhen: false,
@@ -93,9 +94,9 @@ Future<void> scheduleLocalNotification() async {
     )),
     const NotificationDetails(
       android: AndroidNotificationDetails(
-        'id',
-        'name',
-        'description',
+        defaultAndroidChannelId,
+        defaultAndroidChannelName,
+        defaultAndroidChannelDescription,
       ),
     ),
     androidAllowWhileIdle: true,
