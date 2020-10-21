@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:megalovania/i18n/core/localizations.dart';
-import 'package:megalovania/util/local-push-notification.dart';
+import 'package:megalovania/util/local-push-notification/base.dart';
 
 class HomeView extends StatelessWidget {
   static const String route = '/home';
